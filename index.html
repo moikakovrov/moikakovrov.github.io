@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Мойка ковров Актобе: заказать вывоз</title>
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#fffbea; --card:#ffffff; --ink:#1a1a1a; --muted:#5e5a4a; --line:#e6dfc0;
+  --yellow:#ffc400; --yellow-ink:#1a1a1a; --err:#b3261e; --wa:#1fa855;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16140c; --card:#201d11; --ink:#f6f1dc; --muted:#b8b196; --line:#3a3620;
+    --err:#ff8a80; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16140c; --card:#201d11; --ink:#f6f1dc; --muted:#b8b196; --line:#3a3620;
+  --err:#ff8a80; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.5;-webkit-text-size-adjust:100%}
+main{max-width:520px;margin:0 auto;padding:20px 16px 40px}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.logo{width:52px;height:52px;border-radius:50%;background:var(--yellow);color:#1a1a1a;
+  display:grid;place-items:center;font-weight:800;font-size:19px;letter-spacing:.5px;flex:none}
+.brand b{display:block;font-size:17px}
+.brand span{font-size:14px;color:var(--muted)}
+h1{font-size:30px;line-height:1.15;margin:0 0 10px;letter-spacing:-.5px}
+.lead{margin:0 0 18px;color:var(--muted);font-size:16px}
+.perks{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:8px;font-size:15px}
+.perks li{display:flex;gap:10px;align-items:flex-start}
+.perks li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;
+  background:var(--yellow);color:#1a1a1a;font-weight:800;font-size:13px;display:grid;place-items:center;margin-top:1px}
+.card{background:var(--card);border:2px solid var(--yellow);border-radius:16px;padding:18px}
+label{display:block;font-weight:600;font-size:15px;margin:0 0 6px}
+.opt{font-weight:400;color:var(--muted)}
+.field{margin-bottom:14px}
+input,textarea{width:100%;font:inherit;font-size:17px;color:var(--ink);background:var(--bg);
+  border:1.5px solid var(--line);border-radius:10px;padding:12px 13px}
+textarea{min-height:76px;resize:vertical}
+input:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-color:var(--ink)}
+.err{display:none;color:var(--err);font-size:14px;margin-top:5px}
+.field.bad .err{display:block}
+.field.bad input,.field.bad textarea{border-color:var(--err)}
+button.send{width:100%;border:0;border-radius:12px;background:var(--yellow);color:var(--yellow-ink);
+  font:inherit;font-weight:800;font-size:18px;padding:15px;cursor:pointer}
+button.send:active{transform:scale(.99)}
+.hint{font-size:13px;color:var(--muted);margin:10px 0 0;text-align:center}
+.done{display:none;margin-top:16px;padding:14px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line);font-size:15px}
+.done.show{display:block}
+.done a{color:var(--ink);font-weight:700}
+.call{display:block;text-align:center;margin-top:18px;font-size:16px;color:var(--ink)}
+.call b{white-space:nowrap}
+.calc{margin:4px 0 16px;padding:14px;border-radius:12px;background:var(--bg);border:1.5px dashed var(--yellow)}
+.calc h2{font-size:17px;margin:0 0 4px}
+.calc p{margin:0 0 10px;font-size:14px;color:var(--muted)}
+.row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.row input{min-width:0;flex:1}
+.x{color:var(--muted)}
+.rm{flex:none;width:40px;height:46px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--muted);font:inherit;cursor:pointer}
+.add{background:none;border:0;color:var(--ink);font:inherit;font-weight:600;text-decoration:underline;cursor:pointer;padding:6px 0;margin-bottom:8px}
+.sum{font-size:16px;padding-top:10px;border-top:1.5px solid var(--line)}
+.tot{display:inline-block;margin-top:4px;font-size:22px;font-weight:800}
+.pcs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 14px}
+.pcs label{font-size:14px}
+.pcsnote{margin:0 0 6px;font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">
+    <div class="logo" aria-hidden="true">MK</div>
+    <div><b>Мойка ковров Актобе</b><span>@moika.kovrov_aktobe</span></div>
+  </div>
+
+  <h1>Закажите стирку ковров с вывозом на дом</h1>
+  <p class="lead">Оставьте адрес и телефон. Мы свяжемся с вами и согласуем время.</p>
+
+  <ul class="perks">
+    <li>Цена: 600 тг за м². Если площадь больше 15 м², 700 тг за м²</li>
+    <li>Корпешки и одеяла: 2000 тг за штуку, любой размер</li>
+    <li>Вывоз и доставка бесплатно</li>
+    <li>Глубокая стирка: ковёр свежий и без запаха</li>
+    <li>Если пятно не выведется, деньги не берём</li>
+  </ul>
+
+  <div class="card">
+    <form id="f" novalidate>
+      <div class="field" id="g-name">
+        <label for="name">Ваше имя</label>
+        <input id="name" autocomplete="name" placeholder="Например, Айгуль">
+        <div class="err">Напишите, как к вам обращаться</div>
+      </div>
+      <div class="field" id="g-phone">
+        <label for="phone">Телефон</label>
+        <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="8 777 123 45 67">
+        <div class="err">Укажите номер телефона, например 8 777 123 45 67</div>
+      </div>
+      <div class="field" id="g-addr">
+        <label for="addr">Адрес для вывоза</label>
+        <input id="addr" autocomplete="street-address" placeholder="Улица, дом, квартира">
+        <div class="err">Укажите адрес, откуда забрать ковры</div>
+      </div>
+      <div class="calc">
+        <h2>Рассчитайте стоимость</h2>
+        <p>Введите размеры ковра в метрах. 600 тг за м², при площади больше 15 м² 700 тг за м².</p>
+        <div id="rows"></div>
+        <button type="button" class="add" id="add">+ Добавить ещё ковёр</button>
+        <p class="pcsnote">Корпешки и одеяла: 2000 тг за штуку, любой размер.</p>
+        <div class="pcs">
+          <div><label for="kurp">Корпешки, шт</label><input id="kurp" inputmode="numeric" placeholder="0"></div>
+          <div><label for="blank">Одеяла, шт</label><input id="blank" inputmode="numeric" placeholder="0"></div>
+        </div>
+        <div class="sum" id="sum" aria-live="polite"></div>
+      </div>
+      <div class="field">
+        <label for="note">Комментарий <span class="opt">(необязательно)</span></label>
+        <textarea id="note" placeholder="Например: есть пятна от чая, удобнее во вторник"></textarea>
+      </div>
+      <button class="send" type="submit">Отправить заявку</button>
+      <p class="hint">Откроется WhatsApp с готовым сообщением. Останется нажать «Отправить».</p>
+    </form>
+    <div class="done" id="done">
+      Если WhatsApp не открылся, <a id="wa" href="#" target="_blank" rel="noopener">нажмите здесь</a>
+      или позвоните нам.
+    </div>
+  </div>
+
+  <a class="call" href="tel:+77474585867">Или позвоните: <b>8 747 458 58 67</b></a>
+</main>
+
+<script>
+(function(){
+  var WA = "77474585867";
+  var f = document.getElementById("f");
+  function val(id){ return document.getElementById(id).value.trim(); }
+  function mark(g, bad){ document.getElementById(g).classList.toggle("bad", bad); return bad; }
+
+  var rowsEl = document.getElementById("rows");
+  var summary = {area:0, price:600, total:0, items:[]};
+  function num(v){ var n = parseFloat(String(v).replace(",", ".")); return isFinite(n) && n > 0 ? n : 0; }
+  function fmt(n){ return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0"); }
+  function fmtA(n){ return (Math.round(n * 100) / 100).toString().replace(".", ","); }
+  function addRow(){
+    var d = document.createElement("div"); d.className = "row";
+    d.innerHTML = '<input class="w" inputmode="decimal" placeholder="Ширина, м" aria-label="Ширина, м"><span class="x">×</span><input class="l" inputmode="decimal" placeholder="Длина, м" aria-label="Длина, м"><button type="button" class="rm" aria-label="Убрать ковёр">✕</button>';
+    rowsEl.appendChild(d);
+  }
+  function calc(){
+    var items = [], area = 0;
+    var rs = rowsEl.querySelectorAll(".row");
+    for (var i = 0; i < rs.length; i++){
+      var w = num(rs[i].querySelector(".w").value), l = num(rs[i].querySelector(".l").value);
+      if (w && l){ items.push(fmtA(w) + "×" + fmtA(l) + " м"); area += w * l; }
+    }
+    var price = area > 15 ? 700 : 600;
+    var k = Math.floor(num(document.getElementById("kurp").value)), b = Math.floor(num(document.getElementById("blank").value));
+    var carpet = area * price;
+    summary = {area: area, price: price, k: k, b: b, total: carpet + (k + b) * 2000, items: items};
+    var out = document.getElementById("sum");
+    if (!area && !k && !b){ out.textContent = "Введите размеры ковра или количество корпешек и одеял, и мы посчитаем стоимость."; return; }
+    out.innerHTML = (area ? "Ковры: <b>" + fmtA(area) + " м²</b> × " + fmt(price) + " тг = " + fmt(carpet) + " тг<br>" : "") + (k ? "Корпешки: " + k + " шт = " + fmt(k * 2000) + " тг<br>" : "") + (b ? "Одеяла: " + b + " шт = " + fmt(b * 2000) + " тг<br>" : "") + "<span class=\"tot\">Итого: " + fmt(summary.total) + " тг</span>";
+  }
+  rowsEl.addEventListener("input", calc);
+  rowsEl.addEventListener("click", function(e){
+    var b = e.target.closest(".rm"); if (!b) return;
+    var row = b.parentNode;
+    if (rowsEl.querySelectorAll(".row").length > 1){ rowsEl.removeChild(row); }
+    else { row.querySelector(".w").value = ""; row.querySelector(".l").value = ""; }
+    calc();
+  });
+  document.getElementById("add").addEventListener("click", function(){ addRow(); });
+  document.getElementById("kurp").addEventListener("input", calc);
+  document.getElementById("blank").addEventListener("input", calc);
+  addRow(); calc();
+
+  f.addEventListener("submit", function(e){
+    e.preventDefault();
+    var name = val("name"), phone = val("phone"), addr = val("addr"), note = val("note");
+    var digits = phone.replace(/\D/g, "");
+    var b1 = mark("g-name", name.length < 2);
+    var b2 = mark("g-phone", digits.length < 10);
+    var b3 = mark("g-addr", addr.length < 4);
+    if (b1 || b2 || b3) return;
+
+    var text = "Новая заявка на стирку ковров\n" +
+      "Имя: " + name + "\n" +
+      "Телефон: " + phone + "\n" +
+      "Адрес: " + addr +
+      (summary.area ? "\nКовры: " + summary.items.join(", ") + " (" + fmtA(summary.area) + " м²)" : "") +
+      (summary.k ? "\nКорпешки: " + summary.k + " шт" : "") +
+      (summary.b ? "\nОдеяла: " + summary.b + " шт" : "") +
+      (summary.total ? "\nПримерная сумма: " + fmt(summary.total) + " тг" : "") +
+      (note ? "\nКомментарий: " + note : "");
+    var url = "https://wa.me/" + WA + "?text=" + encodeURIComponent(text);
+
+    var link = document.getElementById("wa");
+    link.href = url;
+    document.getElementById("done").classList.add("show");
+    try { link.click(); } catch (err) {}
+  });
+})();
+</script>
+</body>
+</html>
