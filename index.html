@@ -10,7 +10,7 @@
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
   --bg:#fffbea; --card:#ffffff; --ink:#1a1a1a; --muted:#5e5a4a; --line:#e6dfc0;
-  --yellow:#ffc400; --yellow-ink:#1a1a1a; --err:#b3261e; --wa:#1fa855;
+  --yellow:#ffc400; --yellow-ink:#1a1a1a; --err:#b3261e;
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
@@ -34,6 +34,11 @@ main{max-width:520px;margin:0 auto;padding:20px 16px 40px}
   display:grid;place-items:center;font-weight:800;font-size:19px;letter-spacing:.5px;flex:none}
 .brand b{display:block;font-size:17px}
 .brand span{font-size:14px;color:var(--muted)}
+.bt{min-width:0}
+.lang{margin-left:auto;display:flex;flex:none;border:2px solid var(--yellow);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:transparent;color:var(--ink);font:inherit;font-weight:700;font-size:14px;
+  padding:8px 13px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--yellow);color:var(--yellow-ink)}
 h1{font-size:30px;line-height:1.15;margin:0 0 10px;letter-spacing:-.5px}
 .lead{margin:0 0 18px;color:var(--muted);font-size:16px}
 .perks{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:8px;font-size:15px}
@@ -79,97 +84,189 @@ button.send:active{transform:scale(.99)}
 <main>
   <div class="brand">
     <div class="logo" aria-hidden="true">MK</div>
-    <div><b>Мойка ковров Актобе</b><span>@moika.kovrov_aktobe</span></div>
+    <div class="bt"><b data-i18n="brand"></b><span>@moika.kovrov_aktobe</span></div>
+    <div class="lang" role="group" aria-label="Тіл / Язык">
+      <button type="button" id="l-ru" aria-pressed="true">RU</button>
+      <button type="button" id="l-kk" aria-pressed="false">ҚАЗ</button>
+    </div>
   </div>
 
-  <h1>Закажите стирку ковров с вывозом на дом</h1>
-  <p class="lead">Оставьте адрес и телефон. Мы свяжемся с вами и согласуем время.</p>
+  <h1 data-i18n="h1"></h1>
+  <p class="lead" data-i18n="lead"></p>
 
   <ul class="perks">
-    <li>Цена: 600 тг за м². Если площадь больше 15 м², 700 тг за м²</li>
-    <li>Корпешки и одеяла: 2000 тг за штуку, любой размер</li>
-    <li>Вывоз и доставка бесплатно</li>
-    <li>Глубокая стирка: ковёр свежий и без запаха</li>
-    <li>Если пятно не выведется, деньги не берём</li>
+    <li data-i18n="p1"></li>
+    <li data-i18n="p2"></li>
+    <li data-i18n="p3"></li>
+    <li data-i18n="p4"></li>
   </ul>
 
   <div class="card">
     <form id="f" novalidate>
       <div class="field" id="g-name">
-        <label for="name">Ваше имя</label>
-        <input id="name" autocomplete="name" placeholder="Например, Айгуль">
-        <div class="err">Напишите, как к вам обращаться</div>
+        <label for="name" data-i18n="name_l"></label>
+        <input id="name" autocomplete="name" data-i18n-ph="name_ph">
+        <div class="err" data-i18n="name_e"></div>
       </div>
       <div class="field" id="g-phone">
-        <label for="phone">Телефон</label>
+        <label for="phone" data-i18n="phone_l"></label>
         <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="8 777 123 45 67">
-        <div class="err">Укажите номер телефона, например 8 777 123 45 67</div>
+        <div class="err" data-i18n="phone_e"></div>
       </div>
       <div class="field" id="g-addr">
-        <label for="addr">Адрес для вывоза</label>
-        <input id="addr" autocomplete="street-address" placeholder="Улица, дом, квартира">
-        <div class="err">Укажите адрес, откуда забрать ковры</div>
+        <label for="addr" data-i18n="addr_l"></label>
+        <input id="addr" autocomplete="street-address" data-i18n-ph="addr_ph">
+        <div class="err" data-i18n="addr_e"></div>
       </div>
       <div class="calc">
-        <h2>Рассчитайте стоимость</h2>
-        <p>Введите размеры ковра в метрах. 600 тг за м², при площади больше 15 м² 700 тг за м².</p>
+        <h2 data-i18n="calc_h"></h2>
+        <p data-i18n="calc_p"></p>
         <div id="rows"></div>
-        <button type="button" class="add" id="add">+ Добавить ещё ковёр</button>
-        <p class="pcsnote">Корпешки и одеяла: 2000 тг за штуку, любой размер.</p>
+        <button type="button" class="add" id="add" data-i18n="add"></button>
+        <p class="pcsnote" data-i18n="pcsnote"></p>
         <div class="pcs">
-          <div><label for="kurp">Корпешки, шт</label><input id="kurp" inputmode="numeric" placeholder="0"></div>
-          <div><label for="blank">Одеяла, шт</label><input id="blank" inputmode="numeric" placeholder="0"></div>
+          <div><label for="kurp" data-i18n="kurp_l"></label><input id="kurp" inputmode="numeric" placeholder="0"></div>
+          <div><label for="blank" data-i18n="blank_l"></label><input id="blank" inputmode="numeric" placeholder="0"></div>
         </div>
         <div class="sum" id="sum" aria-live="polite"></div>
       </div>
       <div class="field">
-        <label for="note">Комментарий <span class="opt">(необязательно)</span></label>
-        <textarea id="note" placeholder="Например: есть пятна от чая, удобнее во вторник"></textarea>
+        <label for="note"><span data-i18n="note_l"></span> <span class="opt" data-i18n="opt"></span></label>
+        <textarea id="note" data-i18n-ph="note_ph"></textarea>
       </div>
-      <button class="send" type="submit">Отправить заявку</button>
-      <p class="hint">Откроется WhatsApp с готовым сообщением. Останется нажать «Отправить».</p>
+      <button class="send" type="submit" data-i18n="send"></button>
+      <p class="hint" data-i18n="hint"></p>
     </form>
     <div class="done" id="done">
-      Если WhatsApp не открылся, <a id="wa" href="#" target="_blank" rel="noopener">нажмите здесь</a>
-      или позвоните нам.
+      <span data-i18n="done1"></span> <a id="wa" href="#" target="_blank" rel="noopener"><span data-i18n="done2"></span></a> <span data-i18n="done3"></span>
     </div>
   </div>
 
-  <a class="call" href="tel:+77474585867">Или позвоните: <b>8 747 458 58 67</b></a>
+  <a class="call" href="tel:+77474585867"><span data-i18n="call"></span> <b>8 747 458 58 67</b></a>
 </main>
 
 <script>
 (function(){
   var WA = "77474585867";
+  var T = {
+    ru: {
+      title:"Мойка ковров Актобе: заказать вывоз",
+      brand:"Мойка ковров Актобе",
+      h1:"Закажите стирку ковров с вывозом на дом",
+      lead:"Оставьте адрес и телефон. Мы свяжемся с вами и согласуем время.",
+      p1:"Цена: 600 тг за м². Если площадь больше 15 м², 700 тг за м²",
+      p2:"Корпешки и одеяла: 2000 тг за штуку, любой размер",
+      p3:"Вывоз и доставка бесплатно",
+      p4:"Глубокая стирка: ковёр свежий и без запаха",
+      name_l:"Ваше имя", name_ph:"Например, Айгуль", name_e:"Напишите, как к вам обращаться",
+      phone_l:"Телефон", phone_e:"Укажите номер телефона, например 8 777 123 45 67",
+      addr_l:"Адрес для вывоза", addr_ph:"Улица, дом, квартира", addr_e:"Укажите адрес, откуда забрать ковры",
+      calc_h:"Рассчитайте стоимость",
+      calc_p:"Введите размеры ковра в метрах. 600 тг за м², при площади больше 15 м² 700 тг за м².",
+      w_ph:"Ширина, м", l_ph:"Длина, м", rm:"Убрать ковёр", add:"+ Добавить ещё ковёр",
+      pcsnote:"Корпешки и одеяла: 2000 тг за штуку, любой размер.",
+      kurp_l:"Корпешки, шт", blank_l:"Одеяла, шт",
+      empty:"Введите размеры ковра или количество корпешек и одеял, и мы посчитаем стоимость.",
+      s_carpets:"Ковры", s_kurp:"Корпешки", s_blank:"Одеяла", s_pcs:"шт", s_total:"Итого", s_tg:"тг",
+      note_l:"Комментарий", opt:"(необязательно)", note_ph:"Например: есть пятна от чая, во вторник удобнее",
+      send:"Отправить заявку",
+      hint:"Откроется WhatsApp с готовым сообщением. Останется нажать «Отправить».",
+      done1:"Если WhatsApp не открылся,", done2:"нажмите здесь", done3:"или позвоните нам.",
+      call:"Или позвоните:"
+    },
+    kk: {
+      title:"Ақтөбеде кілем жуу: тапсырыс беру",
+      brand:"Ақтөбеде кілем жуу",
+      h1:"Кілем жууға үйден алып кетумен тапсырыс беріңіз",
+      lead:"Мекенжайыңыз бен телефон нөміріңізді қалдырыңыз. Біз сізбен хабарласып, уақытты келісеміз.",
+      p1:"Бағасы: 1 м² үшін 600 тг. Ауданы 15 м²-ден асса, 1 м² үшін 700 тг",
+      p2:"Көрпешелер мен көрпелер: данасы 2000 тг, кез келген өлшем",
+      p3:"Алып кету және жеткізу тегін",
+      p4:"Терең жуу: кілем таза әрі иіссіз",
+      name_l:"Атыңыз", name_ph:"Мысалы, Айгүл", name_e:"Атыңызды жазыңыз",
+      phone_l:"Телефон", phone_e:"Телефон нөміріңізді жазыңыз, мысалы 8 777 123 45 67",
+      addr_l:"Алып кететін мекенжай", addr_ph:"Көше, үй, пәтер", addr_e:"Кілемдерді қайдан алу керек екенін жазыңыз",
+      calc_h:"Құнын есептеңіз",
+      calc_p:"Кілемнің өлшемін метрмен енгізіңіз. 1 м² үшін 600 тг, ауданы 15 м²-ден асса 700 тг.",
+      w_ph:"Ені, м", l_ph:"Ұзындығы, м", rm:"Кілемді жою", add:"+ Тағы бір кілем қосу",
+      pcsnote:"Көрпешелер мен көрпелер: данасы 2000 тг, кез келген өлшем.",
+      kurp_l:"Көрпешелер, дана", blank_l:"Көрпелер, дана",
+      empty:"Кілем өлшемін немесе көрпеше мен көрпе санын енгізіңіз, біз құнын есептейміз.",
+      s_carpets:"Кілемдер", s_kurp:"Көрпешелер", s_blank:"Көрпелер", s_pcs:"дана", s_total:"Барлығы", s_tg:"тг",
+      note_l:"Пікір", opt:"(міндетті емес)", note_ph:"Мысалы: шай дағы бар, сейсенбіде ыңғайлы",
+      send:"Өтінім жіберу",
+      hint:"WhatsApp дайын хабарламамен ашылады. «Жіберу» түймесін басу жеткілікті.",
+      done1:"WhatsApp ашылмаса,", done2:"мына жерді басыңыз", done3:"немесе бізге қоңырау шалыңыз.",
+      call:"Немесе қоңырау шалыңыз:"
+    }
+  };
+
+  var lang = "ru";
+  try {
+    var saved = localStorage.getItem("lang");
+    if (saved === "ru" || saved === "kk") lang = saved;
+    else if ((navigator.language || "").toLowerCase().indexOf("kk") === 0) lang = "kk";
+  } catch (e) {}
+
   var f = document.getElementById("f");
+  var rowsEl = document.getElementById("rows");
+  var summary = {area:0, price:600, k:0, b:0, total:0, items:[]};
+
   function val(id){ return document.getElementById(id).value.trim(); }
   function mark(g, bad){ document.getElementById(g).classList.toggle("bad", bad); return bad; }
-
-  var rowsEl = document.getElementById("rows");
-  var summary = {area:0, price:600, total:0, items:[]};
   function num(v){ var n = parseFloat(String(v).replace(",", ".")); return isFinite(n) && n > 0 ? n : 0; }
   function fmt(n){ return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0"); }
   function fmtA(n){ return (Math.round(n * 100) / 100).toString().replace(".", ","); }
+
+  function apply(root){
+    var t = T[lang], i, els;
+    els = root.querySelectorAll("[data-i18n]");
+    for (i = 0; i < els.length; i++) els[i].textContent = t[els[i].getAttribute("data-i18n")];
+    els = root.querySelectorAll("[data-i18n-ph]");
+    for (i = 0; i < els.length; i++) els[i].placeholder = t[els[i].getAttribute("data-i18n-ph")];
+    els = root.querySelectorAll("[data-i18n-aria]");
+    for (i = 0; i < els.length; i++) els[i].setAttribute("aria-label", t[els[i].getAttribute("data-i18n-aria")]);
+  }
+
   function addRow(){
     var d = document.createElement("div"); d.className = "row";
-    d.innerHTML = '<input class="w" inputmode="decimal" placeholder="Ширина, м" aria-label="Ширина, м"><span class="x">×</span><input class="l" inputmode="decimal" placeholder="Длина, м" aria-label="Длина, м"><button type="button" class="rm" aria-label="Убрать ковёр">✕</button>';
+    d.innerHTML = '<input class="w" inputmode="decimal" data-i18n-ph="w_ph" data-i18n-aria="w_ph"><span class="x">×</span><input class="l" inputmode="decimal" data-i18n-ph="l_ph" data-i18n-aria="l_ph"><button type="button" class="rm" data-i18n-aria="rm">✕</button>';
     rowsEl.appendChild(d);
+    apply(d);
   }
+
   function calc(){
-    var items = [], area = 0;
+    var t = T[lang], items = [], area = 0;
     var rs = rowsEl.querySelectorAll(".row");
     for (var i = 0; i < rs.length; i++){
       var w = num(rs[i].querySelector(".w").value), l = num(rs[i].querySelector(".l").value);
       if (w && l){ items.push(fmtA(w) + "×" + fmtA(l) + " м"); area += w * l; }
     }
     var price = area > 15 ? 700 : 600;
-    var k = Math.floor(num(document.getElementById("kurp").value)), b = Math.floor(num(document.getElementById("blank").value));
+    var k = Math.floor(num(document.getElementById("kurp").value));
+    var b = Math.floor(num(document.getElementById("blank").value));
     var carpet = area * price;
     summary = {area: area, price: price, k: k, b: b, total: carpet + (k + b) * 2000, items: items};
     var out = document.getElementById("sum");
-    if (!area && !k && !b){ out.textContent = "Введите размеры ковра или количество корпешек и одеял, и мы посчитаем стоимость."; return; }
-    out.innerHTML = (area ? "Ковры: <b>" + fmtA(area) + " м²</b> × " + fmt(price) + " тг = " + fmt(carpet) + " тг<br>" : "") + (k ? "Корпешки: " + k + " шт = " + fmt(k * 2000) + " тг<br>" : "") + (b ? "Одеяла: " + b + " шт = " + fmt(b * 2000) + " тг<br>" : "") + "<span class=\"tot\">Итого: " + fmt(summary.total) + " тг</span>";
+    if (!area && !k && !b){ out.textContent = t.empty; return; }
+    out.innerHTML =
+      (area ? t.s_carpets + ": <b>" + fmtA(area) + " м²</b> × " + fmt(price) + " " + t.s_tg + " = " + fmt(carpet) + " " + t.s_tg + "<br>" : "") +
+      (k ? t.s_kurp + ": " + k + " " + t.s_pcs + " = " + fmt(k * 2000) + " " + t.s_tg + "<br>" : "") +
+      (b ? t.s_blank + ": " + b + " " + t.s_pcs + " = " + fmt(b * 2000) + " " + t.s_tg + "<br>" : "") +
+      '<span class="tot">' + t.s_total + ": " + fmt(summary.total) + " " + t.s_tg + "</span>";
   }
+
+  function setLang(l, save){
+    lang = l;
+    if (save){ try { localStorage.setItem("lang", l); } catch (e) {} }
+    document.documentElement.lang = l;
+    document.title = T[l].title;
+    document.getElementById("l-ru").setAttribute("aria-pressed", l === "ru" ? "true" : "false");
+    document.getElementById("l-kk").setAttribute("aria-pressed", l === "kk" ? "true" : "false");
+    apply(document);
+    calc();
+  }
+
   rowsEl.addEventListener("input", calc);
   rowsEl.addEventListener("click", function(e){
     var b = e.target.closest(".rm"); if (!b) return;
@@ -181,7 +278,8 @@ button.send:active{transform:scale(.99)}
   document.getElementById("add").addEventListener("click", function(){ addRow(); });
   document.getElementById("kurp").addEventListener("input", calc);
   document.getElementById("blank").addEventListener("input", calc);
-  addRow(); calc();
+  document.getElementById("l-ru").addEventListener("click", function(){ setLang("ru", true); });
+  document.getElementById("l-kk").addEventListener("click", function(){ setLang("kk", true); });
 
   f.addEventListener("submit", function(e){
     e.preventDefault();
@@ -200,7 +298,8 @@ button.send:active{transform:scale(.99)}
       (summary.k ? "\nКорпешки: " + summary.k + " шт" : "") +
       (summary.b ? "\nОдеяла: " + summary.b + " шт" : "") +
       (summary.total ? "\nПримерная сумма: " + fmt(summary.total) + " тг" : "") +
-      (note ? "\nКомментарий: " + note : "");
+      (note ? "\nКомментарий: " + note : "") +
+      (lang === "kk" ? "\nКлиент пишет на казахском (қазақша)" : "");
     var url = "https://wa.me/" + WA + "?text=" + encodeURIComponent(text);
 
     var link = document.getElementById("wa");
@@ -208,6 +307,9 @@ button.send:active{transform:scale(.99)}
     document.getElementById("done").classList.add("show");
     try { link.click(); } catch (err) {}
   });
+
+  addRow();
+  setLang(lang, false);
 })();
 </script>
 </body>
